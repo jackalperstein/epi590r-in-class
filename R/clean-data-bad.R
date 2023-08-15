@@ -4,8 +4,7 @@ nlsy_cols <- c("glasses", "eyesight", "sleep_wkdy", "sleep_wknd",
 
 library(tidyverse)
 # This will not always work because we all have different directories
-setwd("C:/Users/jacka/OneDrive - Emory University/Class Files/Fall 23/EPI 590R - R Bootcamp/Repositories/epi590r-in-class/data/raw")
-nlsy <- read_csv("nlsy.csv",
+nlsy <- read_csv(here::here("data","raw", "nlsy.csv"),
 								 na = c("-1", "-2", "-3", "-4", "-5", "-998"),
 								 skip = 1,
 								 col_names = nlsy_cols)
@@ -20,9 +19,7 @@ nlsy2 <- nlsy |>
 
 nlsy3 <- na.omit(nlsy2)
 
-setwd("../clean/")
+setwd("../data/clean/")
 write_rds(nlsy3, "nlsy-complete-cases.rds")
 
-
-here::here()
-getwd()
+renv::init()
