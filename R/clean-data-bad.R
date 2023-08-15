@@ -22,3 +22,7 @@ nlsy3 <- na.omit(nlsy2)
 
 setwd("../clean/")
 write_rds(nlsy3, "nlsy-complete-cases.rds")
+
+
+here::here()
+getwd()
